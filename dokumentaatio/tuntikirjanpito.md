@@ -6,4 +6,4 @@ Päivä | Tunnit | Kuvaus
 23.1.2017 | 4h | Pelimoottorin ohjelmointia ja pelin piirtoikkunan luonti
 24.1.2017 | 4h | Pelimoottorin ohjelmointia ja piirtoikkunaan piirtäminen kameraluokasta
 26.1.2017 | 2h | Metodiden kirjoittamista ja kuvien lataaminen tiedostosta
-27.1.2017 | 4h | Yksikkötestien ja luokkakaavion tekoa ja pelimaailman peilaaminen piirtoikkunaan kameraluokan avulla
+27.1.2017 | 4h | Yksikkötestien, Checkstyle raportin ja luokkakaavion teko
