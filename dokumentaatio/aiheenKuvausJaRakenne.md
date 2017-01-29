@@ -5,3 +5,6 @@ Pelin pohjaksi tehdään yksinkertainen fysiikkamoottori. Joka huolehtii aalloko
 **Konseptitaidetta**
 
 ![alt Konseptitaidetta](http://files.1337upload.net/Laivapeli-263375.png)
+
+**Luokkakaavio**
+![alt Luokkakaavio](luokkakaavio.png)
