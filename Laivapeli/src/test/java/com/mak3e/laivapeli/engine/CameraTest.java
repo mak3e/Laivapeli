@@ -33,8 +33,8 @@ public class CameraTest {
     
     @Before
     public void setUp() {
-        camera = new Camera(new Vector2(1, 1), 0);
-        //NOTE: THIS IS WHERE CAMERA IS LOCATED IN ALL TESTS
+        camera = new Camera(new Vector2(1, 1));
+        //THIS IS WHERE CAMERA IS LOCATED IN ALL TESTS
     }
     
     @After

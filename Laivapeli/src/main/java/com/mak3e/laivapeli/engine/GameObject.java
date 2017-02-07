@@ -8,6 +8,10 @@ package com.mak3e.laivapeli.engine;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Point;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 
 /**
  *
@@ -28,13 +32,13 @@ public class GameObject {
         this.layer = layer;
     }
 
-    public GameObject(Vector2 pos, int layer, Image sprite) {
+    public GameObject(Vector2 pos, int layer, String sprite) {
         this(pos, layer);
-        this.sprite = sprite;
+        this.sprite = load(sprite);
     }
 
     public void capture(Camera camera) {
-        if (sprite != null && camera.getLayer() >= this.layer) {
+        if (sprite != null) {
             camera.drawSprite(pos, angle, sprite);
         }
     }
@@ -53,5 +57,17 @@ public class GameObject {
 
     public float getA() {
         return angle;
+    }
+    
+    BufferedImage load(String path) {
+        BufferedImage image = null;
+        try {                
+            image = ImageIO.read(new File("resources" + File.separator + path));
+        } catch (IOException ex) {
+            System.out.println("Error while loading a resource");
+        }
+        return image;
+        
+       
     }
 }

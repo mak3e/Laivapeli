@@ -5,6 +5,7 @@
  */
 package com.mak3e.laivapeli.engine;
 
+import java.awt.Image;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -16,9 +17,9 @@ import static org.junit.Assert.*;
  *
  * @author Make
  */
-public class ClockTest {
+public class GameObjectTest {
     
-    public ClockTest() {
+    public GameObjectTest() {
     }
     
     @BeforeClass
@@ -38,22 +39,8 @@ public class ClockTest {
     }
 
     @Test
-    public void ClockDeltaTest() {
-        Clock clock = new Clock();
-        long time = 500000000;
-        long time2 = 700000000;
-        clock.delta(time);
-        clock.delta(time2);
-        assertEquals(0.2f, clock.getDeltaTime(), 0f);
-    }
-    
-    @Test
-    public void ClockTicksPerSecondTest() {
-        Clock clock = new Clock();
-        long time = 500000000;
-        long time2 = 700000000;
-        clock.delta(time);
-        clock.delta(time2);
-        assertEquals(5f, clock.getTicksPerSecond() , 0f);
+    public void loadImageTest() {
+        GameObject go = new GameObject(new Vector2(0,0),0);
+        Image img = go.load("ship.png");
     }
 }

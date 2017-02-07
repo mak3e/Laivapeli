@@ -25,6 +25,10 @@ public class Clock {
         oldTime = newTime;
     }
     
+    public float getTicksPerSecond() {
+        return 1f / deltaTime;
+    }
+    
     public float getDeltaTime() {
         return deltaTime;
     }

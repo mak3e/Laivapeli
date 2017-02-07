@@ -5,15 +5,13 @@
  */
 package com.mak3e.laivapeli.engine;
 
-import java.awt.Image;
-
 /**
  *
  * @author Make
  */
 public class PhysicsObject extends GameObject {
 
-    public PhysicsObject(Vector2 pos, int layer, Image sprite) {
+    public PhysicsObject(Vector2 pos, int layer, String sprite) {
         super(pos, layer, sprite);
     }
     

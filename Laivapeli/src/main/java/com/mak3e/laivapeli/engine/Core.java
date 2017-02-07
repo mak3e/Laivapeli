@@ -5,14 +5,7 @@
  */
 package com.mak3e.laivapeli.engine;
 
-import java.awt.Image;
-import java.awt.Toolkit;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import java.net.URL;
-import java.util.ArrayList;
-import javax.imageio.ImageIO;
+import com.mak3e.laivapeli.game.Game;
 
 /**
  *
@@ -21,44 +14,22 @@ import javax.imageio.ImageIO;
 public class Core {
     
     public static Core engine = new Core();
-    private ArrayList<GameObject> gameobjects = new ArrayList();
-    private ArrayList<PhysicsObject> physicsobjects = new ArrayList();
-    private ArrayList<Box> boxes = new ArrayList();
-    private Clock clock = new Clock(); // Used for constant speeds
-    private Ship ship;
+    private final Clock clock = new Clock(); // Used for constant speeds
+    private Game game = new Game();
     
     public Core() {
-        System.out.println("Laivapeli is running!");
-        
-        //Initialization
-        ship = new Ship(new Vector2(1f, 0f), 1, load("ship.png")); //Init ship
-        physicsobjects.add(ship);
-        physicsobjects.addAll(boxes);
-        gameobjects.addAll(physicsobjects);
-        
+        game = new Game();
     }
     
-    public ArrayList<GameObject> getGameObjects() {
-        return gameobjects;
+    public Game getGame() {
+        return game;
     }
     
     public void update() {
-        for (GameObject gameobject: gameobjects) {
+        for (GameObject gameobject: game.getGameObjects()) {
             gameobject.update();
         }
         clock.tick();
-    }
-    
-    BufferedImage load(String path) {
-        BufferedImage image = null;
-        try {                
-            image = ImageIO.read(new File("resources" + File.separator + path));
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
-        return image;
-        
-       
     }
     
 }

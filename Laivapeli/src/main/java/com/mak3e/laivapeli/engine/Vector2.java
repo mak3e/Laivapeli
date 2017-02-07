@@ -31,6 +31,14 @@ public class Vector2 {
     public Vector2 subtract(Vector2 pos) {
         return new Vector2(this.x - pos.x, this.y - pos.y);
     }
+    
+    public Vector2 divide(float x) {
+        return new Vector2(this.x / x, this.y / x);
+    }
+    
+    public Vector2 multiply(float x) {
+        return new Vector2(this.x * x, this.y * x);
+    }
 
     public boolean isEqualTo(Vector2 pos) {
         return x == pos.x && y == pos.y;

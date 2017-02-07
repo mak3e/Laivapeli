@@ -35,9 +35,11 @@
                 <configuration>
                     <targetClasses>
                         <param>com.mak3e.laivapeli.engine.*</param>
+                        <param>com.mak3e.laivapeli.game.*</param>
                     </targetClasses>
                     <targetTests>
                         <param>com.mak3e.laivapeli.engine.*</param>
+                        <param>com.mak3e.laivapeli.game.*</param>
                     </targetTests>
                 </configuration>
             </plugin>

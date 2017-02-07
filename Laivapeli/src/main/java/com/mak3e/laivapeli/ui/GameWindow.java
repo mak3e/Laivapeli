@@ -19,7 +19,7 @@ public class GameWindow {
         window.getContentPane().add(viewport);
         window.setVisible(true);
         while (true) {
-            //Engine and drawing are independend
+            //Engine and drawing are independent
             Core.engine.update();
             viewport.repaint();
         }
@@ -36,5 +36,6 @@ class Viewport extends JPanel {
     public void paintComponent(Graphics g) {
         Graphics2D view = (Graphics2D) g;
         Camera.main.capture(view);
+    
     }
 }

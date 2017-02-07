@@ -13,17 +13,23 @@ import java.awt.Image;
  *
  * @author Make
  */
-public class Camera extends GameObject {
+public class Camera {
 
-    public static Camera main = new Camera(new Vector2(1, 0), 3);
-
+    public static Camera main = new Camera(new Vector2(1, 0));
+    
+    private Vector2 pos;
+    private GameObject target;
     private Vector2 viewSize;
     private final float unitsPerWidth = 3.125f; // Units per width
-    private Clock fpsClock = new Clock(); // Used for counting fps
+    private final Clock fpsClock = new Clock(); // Used for counting fps
     private Graphics2D view;
 
-    public Camera(Vector2 pos, int layer) {
-        super(pos, layer);
+    public Camera(Vector2 pos) {
+        this.pos = pos;
+    }
+    
+    public void setTarget(GameObject target){
+        this.target = target;
     }
 
     public Vector2 getViewSize() {
@@ -34,15 +40,13 @@ public class Camera extends GameObject {
         return unitsPerWidth;
     }
 
-    @Override
-    public void update() {
-
-    }
-
     public void capture(Graphics2D view) {
         this.view = view;
+        if(this.target != null){
+            this.pos = target.getPos();
+        }
         drawBackground();
-        for (GameObject gameObject : Core.engine.getGameObjects()) {
+        for (GameObject gameObject : Core.engine.getGame().getGameObjects()) {
             gameObject.capture(this);
         }
         drawFps();
@@ -60,13 +64,27 @@ public class Camera extends GameObject {
         view.drawString(fpsText, 10, 10);
     }
 
-    void drawSprite(Vector2 pos, float angle, Image sprite) {
-
-        //view.drawImage(sprite, xx, yy, width, height , null);
+    public void drawSprite(Vector2 pos, float angle, Image sprite) {
+        Vector2 size = new Vector2(
+                sprite.getWidth(null), sprite.getHeight(null)).divide(4);
+        Vector2 point = worldPointToScreenPoint(pos);
+        view.translate(point.x, point.y); //Translate to image origin
+        view.rotate(Math.toRadians(angle)); //Rotate
+        view.drawImage(
+                sprite, 
+                (int) -size.divide(2).x,
+                (int) -size.divide(2).y,
+                (int) size.x,
+                (int) size.y,
+                null
+        );
+        view.rotate(Math.toRadians(-angle)); //Rotate back
+        view.translate(-point.x, -point.y); //Translate back
     }
+    
 
     int getFps() {
-        return (int) (1f / fpsClock.getDeltaTime());
+        return (int) fpsClock.getTicksPerSecond();
     }
 
     float getPixelsPerUnit() {
@@ -74,7 +92,7 @@ public class Camera extends GameObject {
     }
 
     public Vector2 worldPointToScreenPoint(Vector2 pos) {
-        Vector2 result = pos.subtract(this.getPos());
+        Vector2 result = pos.subtract(this.pos);
         float ppu = getPixelsPerUnit();
         int x = (int) ((result.x * ppu) + (viewSize.x / 2));
         int y = (int) ((-result.y * ppu) + (viewSize.y / 2));

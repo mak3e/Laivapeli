@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mak3e.laivapeli.engine;
+package com.mak3e.laivapeli.game;
 
-import java.awt.Image;
+import com.mak3e.laivapeli.engine.PhysicsObject;
+import com.mak3e.laivapeli.engine.Vector2;
 
 /**
  *
@@ -13,8 +14,10 @@ import java.awt.Image;
  */
 public class Ship extends PhysicsObject {
 
-    public Ship(Vector2 pos, int layer, Image sprite) {
+    public Ship(Vector2 pos, int layer, String sprite) {
         super(pos, layer, sprite);
     }
+    
+    //ACTION LISTENER WILL CALL SOMETHING HERE
     
 }

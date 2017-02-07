@@ -73,6 +73,20 @@ public class Vector2Test {
     }
     
     @Test
+    public void vector2Divide() {
+        Vector2 tv2 = new Vector2(-5.0f, -2.0f);
+        tv2 = tv2.divide(2f);
+        assertTrue(tv2.isEqualTo(new Vector2(-2.5f, -1.0f)));
+    }
+    
+    @Test
+    public void vector2Multiply() {
+        Vector2 tv2 = new Vector2(-5.0f, -2.0f);
+        tv2 = tv2.multiply(2f);
+        assertTrue(tv2.isEqualTo(new Vector2(-10.0f, -4.0f)));
+    }
+    
+    @Test
     public void vector2ToString(){
         assertEquals(new Vector2(1f,1f).toString(),"(1.0, 1.0)");
     }
