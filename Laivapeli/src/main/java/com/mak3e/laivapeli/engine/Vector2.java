@@ -6,7 +6,8 @@
 package com.mak3e.laivapeli.engine;
 
 /**
- *
+ * Vector2 is used for storing and counting with 2 dimensional values
+ * 
  * @author Make
  */
 public class Vector2 {

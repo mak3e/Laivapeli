@@ -3,9 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mak3e.laivapeli.engine;
+package com.mak3e.laivapeli.game;
 
-import java.awt.Image;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -17,9 +16,9 @@ import static org.junit.Assert.*;
  *
  * @author Make
  */
-public class GameObjectTest {
+public class WaterTest {
     
-    public GameObjectTest() {
+    public WaterTest() {
     }
     
     @BeforeClass
@@ -39,13 +38,7 @@ public class GameObjectTest {
     }
 
     @Test
-    public void loadImageTest() {
-        GameObject go = new GameObject(new Vector2(0,0)) {
-            @Override
-            public void update() {
-                
-            }
-        };
-        Image img = go.load("ship.png");
+    public void WaterDummyTest() {
+        // I DONT HAVE TIME TO DO THIS RIGHT NOW
     }
 }

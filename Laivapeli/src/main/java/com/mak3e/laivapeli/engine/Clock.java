@@ -6,7 +6,8 @@
 package com.mak3e.laivapeli.engine;
 
 /**
- *
+ * Clock is used for timing
+ * 
  * @author Make
  */
 public class Clock {

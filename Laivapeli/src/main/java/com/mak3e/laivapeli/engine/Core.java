@@ -8,7 +8,8 @@ package com.mak3e.laivapeli.engine;
 import com.mak3e.laivapeli.game.Game;
 
 /**
- *
+ * Core takes care of the game engine
+ * 
  * @author Make
  */
 public class Core {

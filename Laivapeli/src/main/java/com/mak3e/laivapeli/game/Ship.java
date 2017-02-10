@@ -5,19 +5,29 @@
  */
 package com.mak3e.laivapeli.game;
 
-import com.mak3e.laivapeli.engine.PhysicsObject;
+import com.mak3e.laivapeli.engine.GameObject;
 import com.mak3e.laivapeli.engine.Vector2;
 
 /**
- *
+ * A ship which floats on water
+ * 
  * @author Make
  */
-public class Ship extends PhysicsObject {
+public class Ship extends GameObject {
 
-    public Ship(Vector2 pos, int layer, String sprite) {
-        super(pos, layer, sprite);
+    private Water water;
+
+    public Ship(Vector2 pos, String sprite) {
+        super(pos, sprite);
     }
-    
+
     //ACTION LISTENER WILL CALL SOMETHING HERE
-    
+    @Override
+    public void update() {
+    }
+
+    public void setWater(Water water) {
+        this.water = water;
+    }
+
 }

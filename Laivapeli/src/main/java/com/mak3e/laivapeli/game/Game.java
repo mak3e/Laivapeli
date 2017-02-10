@@ -12,23 +12,36 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
+ * Game class initializes the game worlds
+ * 
  * @author Make
  */
 public class Game {
-    
+
     private List<GameObject> game = new ArrayList<>();
+    private float levelWidth = 100f;
     
     public Game() {
-        game.add(new Ship(new Vector2(1f, 0f), 1, "ship.png"));
+        // Create objects
+        CameraTarget ct = new CameraTarget(new Vector2(1f, 0f), levelWidth);
+        Ship ship = new Ship(new Vector2(1f, 0f), "ship.png");
+        Water water = new Water(new Vector2(0f, 0f), levelWidth);
+
+        // Initialize objects
+        ct.setCamera(Camera.main);
+        ship.setWater(water);
+
+        // Add objects to the game
+        game.add(ct);
         for (int i = 0; i < 4; i++) {
             game.add(new Box(new Vector2(
-                    1f, 1f - (i / 4f)), 0, new String[]{"box1.png"})
+                    1f, 1f - (i / 4f)), new String[]{"box1.png"})
             );
         }
-        
+        game.add(ship);
+        game.add(water);
     }
-    
+
     public List<GameObject> getGameObjects() {
         return game;
     }

@@ -5,6 +5,7 @@
  */
 package com.mak3e.laivapeli.engine;
 
+import com.mak3e.laivapeli.game.CameraTarget;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -33,8 +34,7 @@ public class CameraTest {
     
     @Before
     public void setUp() {
-        camera = new Camera(new Vector2(1, 1));
-        //THIS IS WHERE CAMERA IS LOCATED IN ALL TESTS
+        camera = new Camera(new CameraTarget(new Vector2(1f,1f),0));
     }
     
     @After
