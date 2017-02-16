@@ -5,14 +5,13 @@
  */
 package com.mak3e.laivapeli.game;
 
-
 import com.mak3e.laivapeli.engine.GameObject;
 import com.mak3e.laivapeli.engine.Vector2;
 import java.util.Random;
 
 /**
  * A box, shipped by a ship
- * 
+ *
  * @author Make
  */
 public class Box extends GameObject {
@@ -23,7 +22,7 @@ public class Box extends GameObject {
 
     @Override
     public void update() {
-        
+
     }
-    
+
 }

@@ -12,15 +12,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Game class initializes the game worlds
- * 
+ * Game class constructs the game world
+ *
  * @author Make
  */
 public class Game {
 
     private List<GameObject> game = new ArrayList<>();
     private float levelWidth = 100f;
-    
+
+    /**
+     * Initialize game
+     *
+     * Add all objects to game world
+     */
     public Game() {
         // Create objects
         CameraTarget ct = new CameraTarget(new Vector2(1f, 0f), levelWidth);
@@ -29,6 +34,7 @@ public class Game {
 
         // Initialize objects
         ct.setCamera(Camera.main);
+        ct.followTarget(ship);
         ship.setWater(water);
 
         // Add objects to the game
@@ -42,6 +48,11 @@ public class Game {
         game.add(water);
     }
 
+    /**
+     * Return all GameObjects of the game world
+     *
+     * @return a list of GameObjects
+     */
     public List<GameObject> getGameObjects() {
         return game;
     }

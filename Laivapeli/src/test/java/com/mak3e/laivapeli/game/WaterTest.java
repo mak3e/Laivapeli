@@ -5,6 +5,7 @@
  */
 package com.mak3e.laivapeli.game;
 
+import com.mak3e.laivapeli.engine.Vector2;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -38,7 +39,8 @@ public class WaterTest {
     }
 
     @Test
-    public void WaterDummyTest() {
-        // I DONT HAVE TIME TO DO THIS RIGHT NOW
+    public void WaterGetHeightTest() {
+        Water water = new Water(new Vector2(0,0), 10);
+        assertEquals(21f, water.heightBetween(24f, 12f, 0.75f), 0f);
     }
 }

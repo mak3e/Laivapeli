@@ -9,28 +9,50 @@ import com.mak3e.laivapeli.game.Game;
 
 /**
  * Core takes care of the game engine
- * 
+ *
  * @author Make
  */
 public class Core {
-    
+
     public static Core engine = new Core();
     private final Clock clock = new Clock(); // Used for constant speeds
     private Game game = new Game();
-    
+
+    /**
+     * Constructor
+     *
+     * Initialize core
+     */
     public Core() {
         game = new Game();
     }
-    
+
+    /**
+     * Get Game (contains all game objects in the game)
+     *
+     * @return Game
+     */
     public Game getGame() {
         return game;
     }
-    
+
+    /**
+     * Get game clock
+     *
+     * @return Clock
+     */
+    public Clock getClock() {
+        return clock;
+    }
+
+    /**
+     * Update game objects and make clock tick
+     */
     public void update() {
-        for (GameObject gameobject: game.getGameObjects()) {
+        for (GameObject gameobject : game.getGameObjects()) {
             gameobject.update();
         }
         clock.tick();
     }
-    
+
 }

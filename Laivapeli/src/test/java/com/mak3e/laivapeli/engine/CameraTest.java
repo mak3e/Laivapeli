@@ -34,7 +34,8 @@ public class CameraTest {
     
     @Before
     public void setUp() {
-        camera = new Camera(new CameraTarget(new Vector2(1f,1f),0));
+        camera = new Camera(3.125f);
+        camera.setTarget(new CameraTarget(new Vector2(1f,1f),0));
     }
     
     @After
