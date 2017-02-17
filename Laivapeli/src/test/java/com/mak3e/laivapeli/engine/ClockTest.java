@@ -17,28 +17,28 @@ import static org.junit.Assert.*;
  * @author Make
  */
 public class ClockTest {
-    
+
     public ClockTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
     }
 
     @Test
-    public void ClockDeltaTest() {
+    public void clockDeltaTest() {
         Clock clock = new Clock();
         long time = 500000000;
         long time2 = 700000000;
@@ -46,14 +46,21 @@ public class ClockTest {
         clock.delta(time2);
         assertEquals(0.2f, clock.getDeltaTime(), 0f);
     }
-    
+
     @Test
-    public void ClockTicksPerSecondTest() {
+    public void clockTickTest() {
+        Clock clock = new Clock();
+        clock.tick();
+        assertTrue(clock.getDeltaTime() > 0);
+    }
+
+    @Test
+    public void clockTicksPerSecondTest() {
         Clock clock = new Clock();
         long time = 500000000;
         long time2 = 700000000;
         clock.delta(time);
         clock.delta(time2);
-        assertEquals(5f, clock.getTicksPerSecond() , 0f);
+        assertEquals(5f, clock.getTicksPerSecond(), 0f);
     }
 }

@@ -12,7 +12,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 /**
- * GameObject is a base class which will be extended by the game objects
+ * GameObject is a base class which will be extended by the game objects.
  *
  * @author Make
  */
@@ -26,7 +26,7 @@ public abstract class GameObject {
     private Image sprite; //Sprite
 
     /**
-     * Constructor
+     * Constructor.
      *
      * Create new game object
      *
@@ -37,7 +37,7 @@ public abstract class GameObject {
     }
 
     /**
-     * Constructor
+     * Constructor.
      *
      * Create new game object with sprite
      *
@@ -50,11 +50,11 @@ public abstract class GameObject {
     }
 
     /**
-     * Capture game object
+     * Capture game object.
      *
      * Draw game objects sprite on camera
      *
-     * @param camera
+     * @param camera Camera
      */
     public void capture(Camera camera) {
         if (sprite != null) {
@@ -63,12 +63,12 @@ public abstract class GameObject {
     }
 
     /**
-     * Update method used for game object specific functions
+     * Update method used for game object specific functions.
      */
     public abstract void update();
 
     /**
-     * Get position of a game object
+     * Get position of a game object.
      *
      * @return position as Vector2
      */
@@ -77,7 +77,7 @@ public abstract class GameObject {
     }
 
     /**
-     * Set position of a game object
+     * Set position of a game object.
      *
      * @param pos new position
      */
@@ -86,7 +86,7 @@ public abstract class GameObject {
     }
 
     /**
-     * Get angle of a game object
+     * Get angle of a game object.
      *
      * @return angle in degrees as float
      */
@@ -95,7 +95,7 @@ public abstract class GameObject {
     }
 
     /**
-     * Set angle of a game object
+     * Set angle of a game object.
      *
      * @param angle in degrees as float
      */
@@ -104,7 +104,7 @@ public abstract class GameObject {
     }
 
     /**
-     * Load image from resources
+     * Load image from resources.
      *
      * @param path file name as string
      * @return image as BufferedImage

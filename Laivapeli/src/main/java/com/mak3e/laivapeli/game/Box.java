@@ -10,12 +10,18 @@ import com.mak3e.laivapeli.engine.Vector2;
 import java.util.Random;
 
 /**
- * A box, shipped by a ship
+ * A box, shipped by a ship.
  *
  * @author Make
  */
 public class Box extends GameObject {
 
+    /**
+     * Constructor.
+     * 
+     * @param pos position
+     * @param sprites box sprites
+     */
     public Box(Vector2 pos, String[] sprites) {
         super(pos, sprites[new Random().nextInt(sprites.length)]);
     }

@@ -6,7 +6,7 @@
 package com.mak3e.laivapeli.engine;
 
 /**
- * Input is used for passing input from UI to game objects
+ * Input is used for passing input from UI to game objects.
  *
  * @author Make
  */
@@ -16,7 +16,7 @@ public class Input {
     private Vector2 axis;
 
     /**
-     * Get axis
+     * Get axis.
      *
      * @return axis as vector2
      */
@@ -25,7 +25,7 @@ public class Input {
     }
 
     /**
-     * Set input axis
+     * Set input axis.
      *
      * x and y values larger than 1 will changed to 1
      *
@@ -37,7 +37,7 @@ public class Input {
         x = Math.min(1f, x);
         x = Math.max(-1f, x);
         y = Math.min(1f, y);
-        y = Math.min(-1f, y);
+        y = Math.max(-1f, y);
         this.axis = new Vector2(x, y);
     }
 }

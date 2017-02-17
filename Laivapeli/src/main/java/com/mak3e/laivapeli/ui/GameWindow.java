@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * User interface
+ * User interface.
  *
  * @author Make
  */
@@ -25,7 +25,13 @@ public class GameWindow {
 
     private static final int WIDTH = 800;
     private static final int HEIGHT = 600;
-
+    
+    /**
+     * Main method.
+     * 
+     * @param a Arguments
+     * @throws InterruptedException 
+     */
     public static void main(String[] a) throws InterruptedException {
         JFrame window = new JFrame("Laivapeli");
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

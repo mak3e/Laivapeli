@@ -6,7 +6,7 @@
 package com.mak3e.laivapeli.engine;
 
 /**
- * Clock is used for timing
+ * Clock is used for timing.
  *
  * @author Make
  */
@@ -17,14 +17,14 @@ public class Clock {
     private long newTime = 0;
 
     /**
-     * Tick tock tick tock
+     * Tick tock tick tock.
      */
     public void tick() {
         delta(System.nanoTime());
     }
 
     /**
-     * Count delta time between ticks
+     * Count delta time between ticks.
      *
      * @param time nano time
      */
@@ -35,7 +35,7 @@ public class Clock {
     }
 
     /**
-     * Get ticks per second
+     * Get ticks per second.
      *
      * @return ticks per second as float
      */
@@ -44,7 +44,7 @@ public class Clock {
     }
 
     /**
-     * Get delta time between ticks
+     * Get delta time between ticks.
      *
      * @return delta time in seconds as float
      */

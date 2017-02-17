@@ -19,7 +19,7 @@ public class Ship extends GameObject {
     private float lift = 0.1f;
 
     /**
-     * Constructor
+     * Constructor.
      *
      * @param pos position of the ship
      * @param sprite sprite of the ship
@@ -27,8 +27,7 @@ public class Ship extends GameObject {
     public Ship(Vector2 pos, String sprite) {
         super(pos, sprite);
     }
-
-    //ACTION LISTENER WILL CALL SOMETHING HERE
+    
     @Override
     public void update() {
         float x = super.getPos().x;
@@ -37,7 +36,7 @@ public class Ship extends GameObject {
     }
 
     /**
-     * Set water on which the ship will sail
+     * Set water on which the ship will sail.
      *
      * @param water Water
      */

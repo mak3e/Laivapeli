@@ -5,7 +5,6 @@
  */
 package com.mak3e.laivapeli.engine;
 
-import java.awt.Image;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -17,9 +16,9 @@ import static org.junit.Assert.*;
  *
  * @author Make
  */
-public class GameObjectTest {
+public class CoreTest {
     
-    public GameObjectTest() {
+    public CoreTest() {
     }
     
     @BeforeClass
@@ -39,22 +38,22 @@ public class GameObjectTest {
     }
     
     @Test
-    public void GameObjectTest() {
-        GameObject go = new GameObject(new Vector2(0,0)) {
-            @Override
-            public void update() {
-                
-            }
-        };
+    public void coreTest() {
+        assertTrue(Core.engine != null);
     }
-
+    
     @Test
-    public void loadImageTest() {
-        GameObject go = new GameObject(new Vector2(0,0), "ship.png") {
-            @Override
-            public void update() {
-                
-            }
-        };
+    public void coreClockTest() {
+        assertTrue(Core.engine.getClock() != null);
+    }
+    
+    @Test
+    public void coreGameTest() {
+        assertTrue(Core.engine.getGame() != null);
+    }
+    
+    public void coreUpdateTest(){
+        Core.engine.update();
+        assertTrue(Core.engine.getClock().getDeltaTime() > 0);
     }
 }

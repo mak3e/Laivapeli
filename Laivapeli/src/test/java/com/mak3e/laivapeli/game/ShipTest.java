@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mak3e.laivapeli.engine;
+package com.mak3e.laivapeli.game;
 
-import java.awt.Image;
+import com.mak3e.laivapeli.engine.Vector2;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -17,9 +17,9 @@ import static org.junit.Assert.*;
  *
  * @author Make
  */
-public class GameObjectTest {
+public class ShipTest {
     
-    public GameObjectTest() {
+    public ShipTest() {
     }
     
     @BeforeClass
@@ -37,24 +37,15 @@ public class GameObjectTest {
     @After
     public void tearDown() {
     }
-    
-    @Test
-    public void GameObjectTest() {
-        GameObject go = new GameObject(new Vector2(0,0)) {
-            @Override
-            public void update() {
-                
-            }
-        };
-    }
 
     @Test
-    public void loadImageTest() {
-        GameObject go = new GameObject(new Vector2(0,0), "ship.png") {
-            @Override
-            public void update() {
-                
-            }
-        };
+    public void shipFloatsOnWaterTest() {
+        Ship ship = new Ship(new Vector2(1f, 0f), "ship.png");
+        Water water = new Water(new Vector2(0f,0f), 10f);
+        ship.setWater(water);
+        ship.update();
+        assertTrue(new Vector2(1f,0.1f).isEqualTo(ship.getPos()));
+        assertEquals(0f, ship.getAngle(), 0f);
+    
     }
 }

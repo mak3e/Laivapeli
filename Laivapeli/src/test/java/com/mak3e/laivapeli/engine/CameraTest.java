@@ -6,6 +6,7 @@
 package com.mak3e.laivapeli.engine;
 
 import com.mak3e.laivapeli.game.CameraTarget;
+import java.awt.Graphics2D;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -66,7 +67,6 @@ public class CameraTest {
     public void cameraWorldPointToScreenPointVertical() {
         camera.setView(100, 50);
         Vector2 tv2 = camera.worldPointToScreenPoint(new Vector2(1f,1.5f));
-        System.out.println(tv2.toString());
         assertTrue(tv2.isEqualTo(new Vector2(50f, 9f))); //Counted by hand       
     }
     
@@ -74,6 +74,16 @@ public class CameraTest {
     public void cameraGetPixelsPerUnit() {
         camera.setView(200, 150);
         assertEquals(64f, camera.getPixelsPerUnit(), 0f);
-        
+    }
+    
+    @Test
+    public void cameraGetUnitsPerHeight() {
+        camera.setView(200, 400);
+        assertEquals(6.25f, camera.getUnitsPerHeight(), 0f);
+    }
+    
+    public void cameraFPSTest() {
+        camera.fpsClock.tick();
+        assertTrue(camera.getFps()>0);
     }
 }

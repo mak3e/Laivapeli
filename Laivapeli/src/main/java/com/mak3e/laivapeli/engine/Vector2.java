@@ -6,7 +6,7 @@
 package com.mak3e.laivapeli.engine;
 
 /**
- * Vector2 is used for storing and counting with 2 dimensional float values
+ * Vector2 is used for storing and counting with 2 dimensional float values.
  *
  * @author Make
  */
@@ -16,7 +16,7 @@ public class Vector2 {
     public final float y;
 
     /**
-     * Constructor
+     * Constructor.
      *
      * Set values of Vector2
      *
@@ -29,7 +29,7 @@ public class Vector2 {
     }
 
     /**
-     * Constructor
+     * Constructor.
      *
      * Set values of Vector 2
      *
@@ -42,7 +42,7 @@ public class Vector2 {
     }
 
     /**
-     * Add Vector2 to Vector2
+     * Add Vector2 to Vector2.
      *
      * @param pos Vector2
      * @return new Vector2
@@ -52,7 +52,7 @@ public class Vector2 {
     }
 
     /**
-     * Subtract Vector2 from Vector2
+     * Subtract Vector2 from Vector2.
      *
      * @param pos Vector2 to subtract
      * @return new Vector2
@@ -62,7 +62,7 @@ public class Vector2 {
     }
 
     /**
-     * Divide Vector2 with value x
+     * Divide Vector2 with value x.
      *
      * @param x divider as float
      * @return Vector2
@@ -72,7 +72,7 @@ public class Vector2 {
     }
 
     /**
-     * Multiply Vector2 with value x
+     * Multiply Vector2 with value x.
      *
      * @param x multiplier
      * @return Vector2
@@ -82,7 +82,7 @@ public class Vector2 {
     }
 
     /**
-     * Check if 2 vectors are equal
+     * Check if 2 vectors are equal.
      *
      * @param pos Vector2
      * @return true if equal false if not

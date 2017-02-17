@@ -8,3 +8,6 @@ Pelin pohjaksi tehdään yksinkertainen fysiikkamoottori. Joka huolehtii aalloko
 
 **Luokkakaavio**
 ![alt Luokkakaavio](luokkakaavio.png)
+
+**Sekvenssikaavio**
+![alt Sekvenssikaavio](sekvenssikaavio.png)

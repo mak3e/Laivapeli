@@ -10,7 +10,7 @@ import java.awt.Graphics2D;
 import java.awt.Image;
 
 /**
- * Camera is used for drawing the game world on screen
+ * Camera is used for drawing the game world on screen.
  *
  * @author Make
  */
@@ -20,21 +20,21 @@ public class Camera {
     private GameObject target; // Target's position is camera's position
     private Vector2 viewSize; // Size of UI in pixels
     private float unitsPerWidth = 3.125f; // Units per width
-    private final Clock fpsClock = new Clock(); // Used for counting fps
+    public final Clock fpsClock = new Clock(); // Used for counting fps
     private Graphics2D view; // Holds each frame until they're drawn
 
     /**
-     * Constructor
+     * Constructor.
      *
      * @param unitsPerWidth (required) amount of game world units displayed per
-     * window width
+     * window width.
      */
     public Camera(float unitsPerWidth) {
         this.unitsPerWidth = unitsPerWidth;
     }
 
     /**
-     * Set target for camera to follow
+     * Set target for camera to follow.
      *
      * @param target GameObject
      */
@@ -43,7 +43,7 @@ public class Camera {
     }
 
     /**
-     * Get camera's position
+     * Get camera's position.
      *
      * @return camera's position
      */
@@ -52,7 +52,7 @@ public class Camera {
     }
 
     /**
-     * Get view size in pixels
+     * Get view size in pixels.
      *
      * @return view size as Vector2
      */
@@ -61,7 +61,7 @@ public class Camera {
     }
 
     /**
-     * Get units per window width
+     * Get units per window width.
      *
      * @return units per width
      */
@@ -70,7 +70,7 @@ public class Camera {
     }
 
     /**
-     * Get units per window height
+     * Get units per window height.
      *
      * @return units per height
      */
@@ -79,7 +79,7 @@ public class Camera {
     }
 
     /**
-     * Capture the game world
+     * Capture the game world.
      *
      * Captures the game world by asking game objects to draw on view
      *
@@ -98,7 +98,7 @@ public class Camera {
     }
 
     /**
-     * Draw background of game world
+     * Draw background of game world.
      */
     void drawBackground() {
         view.setColor(Color.WHITE);
@@ -106,7 +106,7 @@ public class Camera {
     }
 
     /**
-     * Draw FPS to the top left corner
+     * Draw FPS to the top left corner.
      */
     void drawFps() {
         view.setColor(Color.BLACK);
@@ -115,7 +115,7 @@ public class Camera {
     }
 
     /**
-     * Draw sprite
+     * Draw sprite.
      *
      * Method called by game objects when captured
      *
@@ -144,7 +144,7 @@ public class Camera {
     }
 
     /**
-     * Draw polygon
+     * Draw polygon.
      *
      * Used for drawing water
      *
@@ -163,7 +163,7 @@ public class Camera {
     }
 
     /**
-     * Get FPS
+     * Get FPS.
      *
      * @return FPS as integer
      */
@@ -172,7 +172,7 @@ public class Camera {
     }
 
     /**
-     * Get pixels per unit
+     * Get pixels per unit.
      *
      * @return pixels per unit
      */
@@ -181,7 +181,7 @@ public class Camera {
     }
 
     /**
-     * World points to screen points
+     * World points to screen points.
      *
      * @param pos world point as Vector2
      * @return screen point as Vector2
@@ -195,7 +195,7 @@ public class Camera {
     }
 
     /**
-     * Set view size
+     * Set view size.
      *
      * @param width window width
      * @param height window height

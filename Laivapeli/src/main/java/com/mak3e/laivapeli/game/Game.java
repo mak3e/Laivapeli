@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Game class constructs the game world
+ * Game class constructs the game world.
  *
  * @author Make
  */
@@ -22,7 +22,7 @@ public class Game {
     private float levelWidth = 100f;
 
     /**
-     * Initialize game
+     * Initialize game.
      *
      * Add all objects to game world
      */
@@ -49,7 +49,7 @@ public class Game {
     }
 
     /**
-     * Return all GameObjects of the game world
+     * Return all GameObjects of the game world.
      *
      * @return a list of GameObjects
      */

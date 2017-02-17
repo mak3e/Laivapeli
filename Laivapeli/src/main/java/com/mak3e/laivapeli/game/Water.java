@@ -11,7 +11,7 @@ import com.mak3e.laivapeli.engine.GameObject;
 import com.mak3e.laivapeli.engine.Vector2;
 
 /**
- * Water, covers 70% of earths surface
+ * Water, covers 70% of earths surface.
  *
  * @author Make
  */
@@ -23,10 +23,17 @@ public class Water extends GameObject {
     private final float tension = 0.025f;
     private final float dampening = 0.025f;
     private final float spread = 0.1f;
+    private final int smoothing = 8;
     private float stepTime = 0f;
     private float stepsPerSecond = 30f;
     private float stepDelta = 1f / stepsPerSecond;
 
+    /**
+     * Constructor.
+     *
+     * @param pos position
+     * @param levelWidth level width in units
+     */
     public Water(Vector2 pos, float levelWidth) {
         super(pos);
         this.width = levelWidth;
@@ -38,30 +45,28 @@ public class Water extends GameObject {
     }
 
     /**
-     * Get height of the water at x position
+     * Get height of the water at x position.
      *
      * @param x x position
      * @return height as float
      */
     public float getHeight(float x) {
-        if (inRange(x)) {
-            x *= springsPerUnit;
-            int leftSpring = (int) Math.floor(x);
-            int rightSpring = (int) Math.ceil(x);
-            float height1 = springs[leftSpring].height;
-            float height2 = springs[rightSpring].height;
-            return heightBetween(height1, height2, x - leftSpring);
-        }
-        return 0;
+        Vector2 height = getClosestSpringHeights(x);
+        return heightBetween(height.x, height.y, x - (float) Math.floor(x));
     }
 
     /**
-     * Get angle of the water at x position
+     * Get angle of the water at x position.
      *
      * @param x x position
      * @return angle in degrees as float
      */
     public float getAngle(float x) {
+        Vector2 height = getClosestSpringHeights(x);
+        return angleOf(height.x - height.y, 1f / springsPerUnit);
+    }
+
+    Vector2 getClosestSpringHeights(float x) {
         if (inRange(x)) {
             x *= springsPerUnit;
             int leftSpring = (int) Math.floor(x);
@@ -75,9 +80,9 @@ public class Water extends GameObject {
             }
             float height1 = springs[leftSpring].height;
             float height2 = springs[rightSpring].height;
-            return angleOf(height1 - height2, 1f / springsPerUnit);
+            return new Vector2(height1, height2);
         }
-        return 0;
+        return new Vector2(0, 0);
     }
 
     boolean inRange(float x) {
@@ -95,40 +100,38 @@ public class Water extends GameObject {
     @Override
     public void update() {
         float deltaTime = Core.engine.getClock().getDeltaTime();
-        stepTime += deltaTime;
         while (stepTime > stepDelta) {
             for (int i = 0; i < springs.length; i++) {
                 springs[i].step(dampening, tension);
             }
-            float[] leftDeltas = new float[springs.length];
-            float[] rightDeltas = new float[springs.length];
-            for (int j = 0; j < 8; j++) {
-                for (int i = 0; i < springs.length; i++) {
-                    if (i > 0) {
-                        leftDeltas[i] = spread
-                                * (springs[i].height - springs[i - 1].height);
-                        springs[i - 1].velocity += leftDeltas[i];
-                    }
-                    if (i < springs.length - 1) {
-                        rightDeltas[i] = spread
-                                * (springs[i].height - springs[i + 1].height);
-                        springs[i + 1].velocity += rightDeltas[i];
-                    }
-                }
-                for (int i = 0; i < springs.length; i++) {
-                    if (i > 0) {
-                        springs[i - 1].height += leftDeltas[i];
-                    }
-                    if (i < springs.length - 1) {
-                        springs[i + 1].height += rightDeltas[i];
-                    }
-                }
+            for (int i = 0; i < smoothing; i++) {
+                smoothWaves();
             }
             stepTime -= stepDelta;
         }
         for (int i = 0; i < springs.length; i++) {
             springs[i].update(deltaTime * stepsPerSecond);
         }
+        stepTime += deltaTime;
+    }
+
+    void smoothWaves() {
+        float delta = 0;
+        float lastDelta = 0;
+        for (int i = 0; i < springs.length - 1; i++) {
+            delta = nextDelta(
+                    springs[i].height,
+                    springs[i + 1].height,
+                    lastDelta
+            );
+            springs[i].velocity += delta;
+            springs[i].height += delta;
+            lastDelta += delta;
+        }
+    }
+
+    float nextDelta(float height1, float height2, float lastDelta) {
+        return spread * (height2 - height1) - lastDelta;
     }
 
     @Override

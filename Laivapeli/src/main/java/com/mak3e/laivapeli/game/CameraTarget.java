@@ -10,7 +10,7 @@ import com.mak3e.laivapeli.engine.GameObject;
 import com.mak3e.laivapeli.engine.Vector2;
 
 /**
- * CameraTarget follows game objects and makes camera follow it
+ * CameraTarget follows game objects and makes camera follow it.
  *
  * @author Make
  */
@@ -20,6 +20,12 @@ public class CameraTarget extends GameObject {
     private Camera camera;
     private float levelWidth;
 
+    /**
+     * Constructor.
+     * 
+     * @param pos position
+     * @param levelWidth level width in units
+     */
     public CameraTarget(Vector2 pos, float levelWidth) {
         super(pos);
         this.levelWidth = levelWidth;
@@ -40,7 +46,7 @@ public class CameraTarget extends GameObject {
     }
 
     /**
-     * Set camera that must follow this
+     * Set camera that must follow this.
      *
      * @param camera Camera
      */
@@ -50,7 +56,7 @@ public class CameraTarget extends GameObject {
     }
 
     /**
-     * Set target that this will follow
+     * Set target that this will follow.
      *
      * @param target target GameObject
      */

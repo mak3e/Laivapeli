@@ -8,7 +8,7 @@ package com.mak3e.laivapeli.engine;
 import com.mak3e.laivapeli.game.Game;
 
 /**
- * Core takes care of the game engine
+ * Core takes care of the game engine.
  *
  * @author Make
  */
@@ -19,7 +19,7 @@ public class Core {
     private Game game = new Game();
 
     /**
-     * Constructor
+     * Constructor.
      *
      * Initialize core
      */
@@ -28,7 +28,7 @@ public class Core {
     }
 
     /**
-     * Get Game (contains all game objects in the game)
+     * Get Game (contains all game objects in the game).
      *
      * @return Game
      */
@@ -37,7 +37,7 @@ public class Core {
     }
 
     /**
-     * Get game clock
+     * Get game clock.
      *
      * @return Clock
      */
@@ -46,7 +46,7 @@ public class Core {
     }
 
     /**
-     * Update game objects and make clock tick
+     * Update game objects and make clock tick.
      */
     public void update() {
         for (GameObject gameobject : game.getGameObjects()) {

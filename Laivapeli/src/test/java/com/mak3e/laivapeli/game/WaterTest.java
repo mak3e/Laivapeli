@@ -39,8 +39,38 @@ public class WaterTest {
     }
 
     @Test
-    public void WaterGetHeightTest() {
+    public void waterHeightBetweenTest() {
         Water water = new Water(new Vector2(0,0), 10);
         assertEquals(21f, water.heightBetween(24f, 12f, 0.75f), 0f);
+    }
+    
+    @Test
+    public void waterGetHeightTest() {
+        Water water = new Water(new Vector2(0,0), 10);
+        water.getHeight(5f);
+    }
+    
+    @Test
+    public void waterAngleOfTest() {
+        Water water = new Water(new Vector2(0,0), 10);
+        assertEquals(45f, water.angleOf(5f, 5f), 0f);
+    }
+    
+    @Test
+    public void waterGetAngleTest() {
+        Water water = new Water(new Vector2(0,0), 10);
+        water.getAngle(5f);
+    }
+    
+    @Test
+    public void waterUpdatesTest() {
+        Water water = new Water(new Vector2(0,0), 10);
+        water.update();
+    }
+    
+    @Test
+    public void waterNExtDeltaTest() {
+        Water water = new Water(new Vector2(0,0), 10);
+        assertEquals(0f, water.nextDelta(10f, 5f, -0.5f), 0f);
     }
 }
