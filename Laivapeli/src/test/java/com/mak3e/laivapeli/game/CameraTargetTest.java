@@ -64,7 +64,7 @@ public class CameraTargetTest {
     @Test
     public void targetTest() {
         CameraTarget ct = new CameraTarget(new Vector2(0, 0), 100);
-        Ship ship = new Ship(new Vector2(5f, 5f), "ship.png");
+        Ship ship = new Ship(new Vector2(5f, 5f));
         Camera cam = new Camera(3.125f);
         ct.setCamera(cam);
         ct.followTarget(ship);

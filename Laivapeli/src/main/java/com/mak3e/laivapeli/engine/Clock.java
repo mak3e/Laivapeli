@@ -12,6 +12,7 @@ package com.mak3e.laivapeli.engine;
  */
 public class Clock {
 
+    public static final Clock time = new Clock();
     private float deltaTime = 0;
     private long oldTime = System.nanoTime();
     private long newTime = 0;

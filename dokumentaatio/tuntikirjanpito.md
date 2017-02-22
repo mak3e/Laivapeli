@@ -1,5 +1,5 @@
 ### Tuntikirjanpito
-Päivä | Tunnit | Kuvaus
+Päivä | Tunnit(*) | Kuvaus
 --------------- | ----- | ------
 19.1.2017 | 2h  | Ideointia ja repon luonti
 22.1.2017 | 2h  | Pelimoottorin ohjelmointia, luokkarakenteen luonti
@@ -13,3 +13,8 @@ Päivä | Tunnit | Kuvaus
 12.2.2017 | 8h  | Water-luokka ja pieniä rakennemuutoksia
 16.2.2017 | 4h  | JavaDoc ja unit-testejä
 17.2.2017 | 4h  | Sekvenssikaavio, unit-testejä ja koodin refaktorointia
+19.2.2017 | 4h  | Kaloja, tausta-aallokko ja koodin refaktorointia
+20.2.2017 | 4h  | Debug mode, satama, äänet ja refaktorointia
+21.2.2017 | 4h  | Savua piipusta ja joitain pieniä muutoksia
+
+(*) Ajat kertovat vain kuinka paljon ainakin käytin, sillä tapanani on usein vain lukea koodia ja korjata pieniä asioita nopeasti, ilman että merkitsen niitä tähän.

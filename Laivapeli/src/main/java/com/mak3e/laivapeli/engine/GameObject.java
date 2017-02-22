@@ -18,12 +18,12 @@ import javax.imageio.ImageIO;
  */
 public abstract class GameObject {
 
-    //1 unit is about 10m
-    //1 unit is 256 pixels when width is 800 and camera zoom is 1
-    //and sprites are rendered 4 times smaller
     private Vector2 pos;
     private float angle = 0f; //Angle
+    private float scale = 1f;
     private Image sprite; //Sprite
+    private String spriteName;
+    private int direction = 1; //Horizontal direction
 
     /**
      * Constructor.
@@ -46,7 +46,8 @@ public abstract class GameObject {
      */
     public GameObject(Vector2 pos, String sprite) {
         this(pos);
-        this.sprite = load(sprite);
+        this.spriteName = sprite;
+        this.sprite = Resources.files.getImage(sprite);
     }
 
     /**
@@ -58,65 +59,77 @@ public abstract class GameObject {
      */
     public void capture(Camera camera) {
         if (sprite != null) {
-            camera.drawSprite(pos, angle, sprite);
+            camera.drawObject(this);
         }
     }
-
+    
     /**
-     * Update method used for game object specific functions.
+     * Debug game object.
+     *
+     * Draw game object info on camera
+     *
+     * @param camera Camera
+     */
+    public void debug(Camera camera) {
+        if (sprite != null) {
+            camera.drawObjectDebug(this);
+        }
+    }
+    
+    /**
+     * Update game object.
      */
     public abstract void update();
 
-    /**
-     * Get position of a game object.
-     *
-     * @return position as Vector2
-     */
+    public void setPos(Vector2 pos) {
+        this.pos = pos;
+    }
+    
+    public void addPos(Vector2 pos) {
+        this.pos = this.pos.add(pos);
+    }
+    
     public Vector2 getPos() {
         return pos;
     }
 
-    /**
-     * Set position of a game object.
-     *
-     * @param pos new position
-     */
-    public void setPos(Vector2 pos) {
-        this.pos = pos;
-    }
-
-    /**
-     * Get angle of a game object.
-     *
-     * @return angle in degrees as float
-     */
-    public float getAngle() {
-        return angle;
-    }
-
-    /**
-     * Set angle of a game object.
-     *
-     * @param angle in degrees as float
-     */
     public void setAngle(float angle) {
         this.angle = angle;
     }
-
-    /**
-     * Load image from resources.
-     *
-     * @param path file name as string
-     * @return image as BufferedImage
-     */
-    BufferedImage load(String path) {
-        BufferedImage image = null;
-        try {
-            image = ImageIO.read(new File("resources" + File.separator + path));
-        } catch (IOException ex) {
-            System.out.println("Error while loading a resource");
-        }
-        return image;
-
+    
+    public void addAngle(float angle){
+        this.angle += angle;
+    }
+    
+    public float getAngle() {
+        return angle;
+    }
+    
+    public void setDirection(int dir) {
+        this.direction = dir;
+    }
+    
+    public int getDirection() {
+        return direction;
+    }
+    
+    public void setScale(float scale) {
+        this.scale = scale;
+    }
+    
+    public void addScale(float scale) {
+        this.scale += scale;
+    }
+    
+    public float getScale() {
+        return scale;
+    }
+    
+    public Image getSprite() {
+        return sprite;
+    }
+    
+    public String getSpriteName(){
+        return spriteName;
     }
 }

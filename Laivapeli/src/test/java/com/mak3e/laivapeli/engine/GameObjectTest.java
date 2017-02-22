@@ -47,14 +47,4 @@ public class GameObjectTest {
             }
         };
     }
-
-    @Test
-    public void loadImageTest() {
-        GameObject go = new GameObject(new Vector2(0,0), "ship.png") {
-            @Override
-            public void update() {
-                
-            }
-        };
-    }
 }

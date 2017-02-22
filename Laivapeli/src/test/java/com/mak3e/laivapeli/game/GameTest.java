@@ -41,4 +41,10 @@ public class GameTest {
     public void gameTest() {
         Game game = new Game();
     }
+    
+    @Test
+    public void gameGetGameObjectsTest() {
+        Game game = new Game();
+        assertTrue(game.getGameObjects()!=null);
+    }
 }

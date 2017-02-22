@@ -40,7 +40,7 @@ public class ShipTest {
 
     @Test
     public void shipFloatsOnWaterTest() {
-        Ship ship = new Ship(new Vector2(1f, 0f), "ship.png");
+        Ship ship = new Ship(new Vector2(1f, 0f));
         Water water = new Water(new Vector2(0f,0f), 10f);
         ship.setWater(water);
         ship.update();

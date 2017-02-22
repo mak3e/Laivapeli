@@ -29,19 +29,6 @@ public class Vector2 {
     }
 
     /**
-     * Constructor.
-     *
-     * Set values of Vector 2
-     *
-     * @param x x value as int
-     * @param y y value as int
-     */
-    public Vector2(int x, int y) {
-        this.x = (float) x;
-        this.y = (float) y;
-    }
-
-    /**
      * Add Vector2 to Vector2.
      *
      * @param pos Vector2

@@ -6,9 +6,11 @@
 package com.mak3e.laivapeli.game;
 
 import com.mak3e.laivapeli.engine.Camera;
-import com.mak3e.laivapeli.engine.Core;
+import com.mak3e.laivapeli.engine.Clock;
 import com.mak3e.laivapeli.engine.GameObject;
+import com.mak3e.laivapeli.engine.Sound;
 import com.mak3e.laivapeli.engine.Vector2;
+import java.awt.Color;
 
 /**
  * Water, covers 70% of earths surface.
@@ -18,15 +20,11 @@ import com.mak3e.laivapeli.engine.Vector2;
 public class Water extends GameObject {
 
     private final int springsPerUnit = 10;
-    private Spring[] springs;
+    private float[] springs;
     private float width;
-    private final float tension = 0.025f;
-    private final float dampening = 0.025f;
-    private final float spread = 0.1f;
-    private final int smoothing = 8;
-    private float stepTime = 0f;
-    private float stepsPerSecond = 30f;
-    private float stepDelta = 1f / stepsPerSecond;
+    private float freq = 1f;
+    private float waveTime = 0f;
+    private Color color = Color.BLACK;
 
     /**
      * Constructor.
@@ -37,11 +35,16 @@ public class Water extends GameObject {
     public Water(Vector2 pos, float levelWidth) {
         super(pos);
         this.width = levelWidth;
-        springs = new Spring[(int) (this.width * springsPerUnit)];
-        for (int i = 0; i < springs.length; i++) { // OPTIMIZE THIS
-            springs[i] = new Spring();
+        springs = new float[(int) (this.width * springsPerUnit) + 1];
+        waveTime = 0;
+    }
+    
+    public Water(Vector2 pos, float levelWidth, boolean bg, float freq) {
+        this(pos, levelWidth);
+        if(bg) {
+            this.color = Color.GRAY;
         }
-        springs[1].height = -10f;
+        this.freq = freq;
     }
 
     /**
@@ -78,8 +81,8 @@ public class Water extends GameObject {
                     rightSpring += 1;
                 }
             }
-            float height1 = springs[leftSpring].height;
-            float height2 = springs[rightSpring].height;
+            float height1 = springs[leftSpring];
+            float height2 = springs[rightSpring];
             return new Vector2(height1, height2);
         }
         return new Vector2(0, 0);
@@ -99,69 +102,38 @@ public class Water extends GameObject {
 
     @Override
     public void update() {
-        float deltaTime = Core.engine.getClock().getDeltaTime();
-        while (stepTime > stepDelta) {
-            for (int i = 0; i < springs.length; i++) {
-                springs[i].step(dampening, tension);
-            }
-            for (int i = 0; i < smoothing; i++) {
-                smoothWaves();
-            }
-            stepTime -= stepDelta;
-        }
+        float deltaTime = Clock.time.getDeltaTime();
         for (int i = 0; i < springs.length; i++) {
-            springs[i].update(deltaTime * stepsPerSecond);
+            float waves = 0f;
+            waves += Math.sin(i/(double)springs.length * width * freq + waveTime) * 0.05f;
+            waves += Math.sin(i/(double)springs.length + 1 * width * freq + waveTime) * 0.1f;
+            springs[i] = waves;
         }
-        stepTime += deltaTime;
+        waveTime += deltaTime;
     }
 
-    void smoothWaves() {
-        float delta = 0;
-        float lastDelta = 0;
-        for (int i = 0; i < springs.length - 1; i++) {
-            delta = nextDelta(
-                    springs[i].height,
-                    springs[i + 1].height,
-                    lastDelta
-            );
-            springs[i].velocity += delta;
-            springs[i].height += delta;
-            lastDelta += delta;
-        }
-    }
-
-    float nextDelta(float height1, float height2, float lastDelta) {
-        return spread * (height2 - height1) - lastDelta;
-    }
-
-    @Override
-    public void capture(Camera camera) {
+    Vector2[] getPoints(Camera camera){
         Vector2 pos = super.getPos();
         Vector2[] points = new Vector2[springs.length + 2];
         for (int i = 0; i < springs.length; i++) {
             points[i] = new Vector2(
                     pos.x + ((i / (float) (springs.length - 1)) * width),
-                    pos.y + springs[i].height
+                    pos.y + springs[i]
             );
         }
         float bottom = -camera.getUnitsPerHeight() / 2 + camera.getPos().y - 1;
         points[springs.length] = new Vector2(this.width, bottom);
         points[springs.length + 1] = new Vector2(pos.x, bottom);
-        camera.drawPolygon(points);
+        return points;
     }
-}
-
-class Spring {
-
-    public float height = 0f;
-    public float velocity = 0f;
-
-    public void update(float deltaStep) {
-        height += velocity * deltaStep;
+    
+    @Override
+    public void capture(Camera camera) {
+        camera.drawPolygon(getPoints(camera), color);
     }
-
-    public void step(float dampening, float tension) {
-        velocity += -height * tension - velocity * dampening;
+    
+    @Override
+    public void debug(Camera camera) {
+        camera.drawPolygonDebug(getPoints(camera));
     }
-
 }

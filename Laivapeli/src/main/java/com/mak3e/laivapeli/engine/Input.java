@@ -13,7 +13,7 @@ package com.mak3e.laivapeli.engine;
 public class Input {
 
     public static Input in = new Input();
-    private Vector2 axis;
+    private Vector2 axis = new Vector2(0, 0);
 
     /**
      * Get axis.

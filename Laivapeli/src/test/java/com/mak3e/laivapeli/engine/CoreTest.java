@@ -11,6 +11,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import com.mak3e.laivapeli.game.Game;
 
 /**
  *
@@ -43,17 +44,11 @@ public class CoreTest {
     }
     
     @Test
-    public void coreClockTest() {
-        assertTrue(Core.engine.getClock() != null);
-    }
-    
-    @Test
     public void coreGameTest() {
         assertTrue(Core.engine.getGame() != null);
     }
     
     public void coreUpdateTest(){
         Core.engine.update();
-        assertTrue(Core.engine.getClock().getDeltaTime() > 0);
     }
 }

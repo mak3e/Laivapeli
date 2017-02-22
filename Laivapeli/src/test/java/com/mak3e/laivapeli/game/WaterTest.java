@@ -69,8 +69,16 @@ public class WaterTest {
     }
     
     @Test
-    public void waterNExtDeltaTest() {
+    public void waterInRangeTest() {
         Water water = new Water(new Vector2(0,0), 10);
-        assertEquals(0f, water.nextDelta(10f, 5f, -0.5f), 0f);
+        assertTrue(water.inRange(5f));
+        assertTrue(!water.inRange(15f));
+    }
+    
+    @Test
+    public void waterGetClosestSpringHeightsTest() {
+        Water water = new Water(new Vector2(0,0), 10);
+        assertTrue(
+                new Vector2(0,0).isEqualTo(water.getClosestSpringHeights(-1f)));
     }
 }
