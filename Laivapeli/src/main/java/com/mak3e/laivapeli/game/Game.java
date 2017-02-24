@@ -27,7 +27,7 @@ public class Game {
      *
      * Add all objects to game world
      */
-    public Game() {        
+    public Game() {
         // Create objects
         CameraTarget ct = new CameraTarget(new Vector2(1f, 0f), levelWidth);
         Ship ship = new Ship(new Vector2(levelWidth * 0.5f, 0f));
@@ -71,7 +71,7 @@ public class Game {
         game.add(ship);
         game.addAll(fishes);
         game.add(water);
-        
+
         // Add ocean background sound
         Sound.audio.play("ocean", true);
     }

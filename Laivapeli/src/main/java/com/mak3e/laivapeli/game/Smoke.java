@@ -14,14 +14,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
+ * Smoke.
  * @author Make
  */
 public class Smoke extends GameObject {
 
     private final int maxParticles = 20;
     private final float rate = 0.05f;
-    private float startScale = 0.1f;
+    private final float startScale = 0.1f;
     private final float scaleFactor = 0.5f;
     private final Vector2 posFactor = new Vector2(0f, 0.2f);
     private final boolean respawn = true;
@@ -31,6 +31,10 @@ public class Smoke extends GameObject {
     private final List<GameObject> particles = new ArrayList();
     private final Random random = new Random();
 
+    /**
+     * Constructor.
+     * @param ship ship 
+     */
     public Smoke(Ship ship) {
         super(new Vector2(0f, 0f));
         this.ship = ship;
@@ -46,11 +50,11 @@ public class Smoke extends GameObject {
         for (int i = 0; i < particles.size(); i++) {
             particles.get(i).update();
         }
-        if(ship.getDirection() != lastShipDirection) {
+        if (ship.getDirection() != lastShipDirection) {
             reset();
             lastShipDirection = ship.getDirection();
         }
-        
+
     }
 
     void nextParticle() {
@@ -70,6 +74,7 @@ public class Smoke extends GameObject {
                 this.addScale(deltaTime * scaleFactor);
                 this.addPos(posFactor.multiply(deltaTime));
             }
+
             @Override
             public void debug(Camera camera) {
                 camera.drawCircleDebug(this.getPos(), this.getScale() * 0.1f);
@@ -79,8 +84,8 @@ public class Smoke extends GameObject {
         particle.setScale(startScale + startScale * ship.getAcceleration());
         particles.add(particle);
     }
-    
-    void reset(){
+
+    void reset() {
         particles.removeAll(particles);
     }
 

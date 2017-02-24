@@ -8,7 +8,6 @@ package com.mak3e.laivapeli.game;
 import com.mak3e.laivapeli.engine.Camera;
 import com.mak3e.laivapeli.engine.Clock;
 import com.mak3e.laivapeli.engine.GameObject;
-import com.mak3e.laivapeli.engine.Sound;
 import com.mak3e.laivapeli.engine.Vector2;
 import java.awt.Color;
 
@@ -39,9 +38,17 @@ public class Water extends GameObject {
         waveTime = 0;
     }
     
+    /**
+     * Constructor.
+     * 
+     * @param pos position
+     * @param levelWidth level width in units
+     * @param bg background?
+     * @param freq frequency
+     */
     public Water(Vector2 pos, float levelWidth, boolean bg, float freq) {
         this(pos, levelWidth);
-        if(bg) {
+        if (bg) {
             this.color = Color.GRAY;
         }
         this.freq = freq;
@@ -105,14 +112,14 @@ public class Water extends GameObject {
         float deltaTime = Clock.time.getDeltaTime();
         for (int i = 0; i < springs.length; i++) {
             float waves = 0f;
-            waves += Math.sin(i/(double)springs.length * width * freq + waveTime) * 0.05f;
-            waves += Math.sin(i/(double)springs.length + 1 * width * freq + waveTime) * 0.1f;
+            waves += Math.sin(i / (double) springs.length * width * freq + waveTime) * 0.05f;
+            waves += Math.sin(i / (double) springs.length + 1 * width * freq + waveTime) * 0.1f;
             springs[i] = waves;
         }
         waveTime += deltaTime;
     }
 
-    Vector2[] getPoints(Camera camera){
+    Vector2[] getPoints(Camera camera) {
         Vector2 pos = super.getPos();
         Vector2[] points = new Vector2[springs.length + 2];
         for (int i = 0; i < springs.length; i++) {
@@ -126,12 +133,12 @@ public class Water extends GameObject {
         points[springs.length + 1] = new Vector2(pos.x, bottom);
         return points;
     }
-    
+
     @Override
     public void capture(Camera camera) {
         camera.drawPolygon(getPoints(camera), color);
     }
-    
+
     @Override
     public void debug(Camera camera) {
         camera.drawPolygonDebug(getPoints(camera));

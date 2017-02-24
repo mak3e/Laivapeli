@@ -9,11 +9,11 @@ import com.mak3e.laivapeli.engine.GameObject;
 import com.mak3e.laivapeli.engine.Vector2;
 
 /**
- *
+ * Harbor.
  * @author Make
  */
 public class Harbor extends GameObject {
-    
+
     /**
      * Constructor.
      *
@@ -25,7 +25,7 @@ public class Harbor extends GameObject {
 
     @Override
     public void update() {
-        
+
     }
-    
+
 }

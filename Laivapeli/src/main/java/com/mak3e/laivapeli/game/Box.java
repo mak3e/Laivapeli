@@ -10,15 +10,15 @@ import com.mak3e.laivapeli.engine.Vector2;
 import java.util.Random;
 
 /**
- * A box, shipped by a ship. 
- * (WONT BE IMPLEMENTED AS OF 19.2.2017)
+ * A box, shipped by a ship. (WONT BE IMPLEMENTED AS OF 19.2.2017)
+ *
  * * @author Make
  */
 public class Box extends GameObject {
 
     /**
      * Constructor.
-     * 
+     *
      * @param pos position
      * @param sprites box sprites
      */
@@ -28,7 +28,7 @@ public class Box extends GameObject {
 
     @Override
     public void update() {
-        
+
     }
 
 }

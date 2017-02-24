@@ -18,32 +18,32 @@ import static org.junit.Assert.*;
  * @author Make
  */
 public class GameObjectTest {
-    
+
     public GameObjectTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
     }
-    
+
     @Test
     public void GameObjectTest() {
-        GameObject go = new GameObject(new Vector2(0,0)) {
+        GameObject go = new GameObject(new Vector2(0, 0)) {
             @Override
             public void update() {
-                
+
             }
         };
     }

@@ -29,7 +29,6 @@ public class Ship extends GameObject {
      * Constructor.
      *
      * @param pos position of the ship
-     * @param sprite sprite of the ship
      */
     public Ship(Vector2 pos) {
         super(pos, "ship");

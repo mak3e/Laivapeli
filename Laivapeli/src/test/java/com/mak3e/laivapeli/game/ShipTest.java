@@ -18,22 +18,22 @@ import static org.junit.Assert.*;
  * @author Make
  */
 public class ShipTest {
-    
+
     public ShipTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
     }
@@ -41,11 +41,11 @@ public class ShipTest {
     @Test
     public void shipFloatsOnWaterTest() {
         Ship ship = new Ship(new Vector2(1f, 0f));
-        Water water = new Water(new Vector2(0f,0f), 10f);
+        Water water = new Water(new Vector2(0f, 0f), 10f);
         ship.setWater(water);
         ship.update();
-        assertTrue(new Vector2(1f,0.1f).isEqualTo(ship.getPos()));
+        assertTrue(new Vector2(1f, 0.1f).isEqualTo(ship.getPos()));
         assertEquals(0f, ship.getAngle(), 0f);
-    
+
     }
 }

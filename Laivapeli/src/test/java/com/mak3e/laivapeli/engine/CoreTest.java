@@ -18,37 +18,37 @@ import com.mak3e.laivapeli.game.Game;
  * @author Make
  */
 public class CoreTest {
-    
+
     public CoreTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
     }
-    
+
     @Test
     public void coreTest() {
         assertTrue(Core.engine != null);
     }
-    
+
     @Test
     public void coreGameTest() {
         assertTrue(Core.engine.getGame() != null);
     }
-    
-    public void coreUpdateTest(){
+
+    public void coreUpdateTest() {
         Core.engine.update();
     }
 }

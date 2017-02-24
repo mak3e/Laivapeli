@@ -22,7 +22,7 @@ public class CameraTarget extends GameObject {
 
     /**
      * Constructor.
-     * 
+     *
      * @param pos position
      * @param levelWidth level width in units
      */

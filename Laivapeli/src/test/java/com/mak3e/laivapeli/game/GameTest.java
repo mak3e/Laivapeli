@@ -17,22 +17,22 @@ import static org.junit.Assert.*;
  * @author Make
  */
 public class GameTest {
-    
+
     public GameTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
     }
@@ -41,10 +41,10 @@ public class GameTest {
     public void gameTest() {
         Game game = new Game();
     }
-    
+
     @Test
     public void gameGetGameObjectsTest() {
         Game game = new Game();
-        assertTrue(game.getGameObjects()!=null);
+        assertTrue(game.getGameObjects() != null);
     }
 }

@@ -6,10 +6,6 @@
 package com.mak3e.laivapeli.engine;
 
 import java.awt.Image;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import javax.imageio.ImageIO;
 
 /**
  * GameObject is a base class which will be extended by the game objects.
@@ -62,7 +58,7 @@ public abstract class GameObject {
             camera.drawObject(this);
         }
     }
-    
+
     /**
      * Debug game object.
      *
@@ -75,7 +71,7 @@ public abstract class GameObject {
             camera.drawObjectDebug(this);
         }
     }
-    
+
     /**
      * Update game object.
      */
@@ -84,11 +80,11 @@ public abstract class GameObject {
     public void setPos(Vector2 pos) {
         this.pos = pos;
     }
-    
+
     public void addPos(Vector2 pos) {
         this.pos = this.pos.add(pos);
     }
-    
+
     public Vector2 getPos() {
         return pos;
     }
@@ -96,40 +92,40 @@ public abstract class GameObject {
     public void setAngle(float angle) {
         this.angle = angle;
     }
-    
-    public void addAngle(float angle){
+
+    public void addAngle(float angle) {
         this.angle += angle;
     }
-    
+
     public float getAngle() {
         return angle;
     }
-    
+
     public void setDirection(int dir) {
         this.direction = dir;
     }
-    
+
     public int getDirection() {
         return direction;
     }
-    
+
     public void setScale(float scale) {
         this.scale = scale;
     }
-    
+
     public void addScale(float scale) {
         this.scale += scale;
     }
-    
+
     public float getScale() {
         return scale;
     }
-    
+
     public Image getSprite() {
         return sprite;
     }
-    
-    public String getSpriteName(){
+
+    public String getSpriteName() {
         return spriteName;
     }
 }

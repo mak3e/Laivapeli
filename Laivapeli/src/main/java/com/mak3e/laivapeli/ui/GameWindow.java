@@ -12,12 +12,10 @@ import java.awt.KeyEventDispatcher;
 import java.awt.KeyboardFocusManager;
 import java.awt.RenderingHints;
 import java.awt.RenderingHints.Key;
-import java.awt.Shape;
 import java.awt.Toolkit;
 import java.awt.event.ComponentEvent;
 import java.awt.event.ComponentListener;
 import java.awt.event.KeyEvent;
-import java.awt.image.BufferedImage;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -30,14 +28,14 @@ public class GameWindow {
 
     private static final int WIDTH = 800;
     private static final int HEIGHT = 600;
-    
+
     /**
      * Main method.
-     * 
+     *
      * @param a Arguments
-     * @throws InterruptedException 
+     * @throws InterruptedException
      */
-    public static void main(String[] a) throws InterruptedException {
+    public static void main(String[] a) {
         System.out.println("Laivapeli\n");
         JFrame window = new JFrame("Laivapeli");
         Toolkit kit = Toolkit.getDefaultToolkit();
@@ -58,16 +56,16 @@ public class GameWindow {
 }
 
 class Viewport extends JPanel implements ComponentListener, KeyEventDispatcher {
-    
+
     KeyboardFocusManager manager;
-    
+
     public Viewport(int width, int height) {
         Camera.main.setView(width, height);
         this.addComponentListener(this);
         manager = KeyboardFocusManager.getCurrentKeyboardFocusManager();
         manager.addKeyEventDispatcher(this);
     }
-    
+
     @Override
     public void componentResized(ComponentEvent e) {
         Camera.main.setView(this.getWidth(), this.getHeight());
@@ -84,26 +82,30 @@ class Viewport extends JPanel implements ComponentListener, KeyEventDispatcher {
         RenderingHints rh = new RenderingHints(rhmap);
         view.addRenderingHints(rh);
         Camera.main.capture(view);
-        if(Core.debug) {
+        if (Core.debug) {
             Camera.main.debug(view);
         }
-    
+        Toolkit.getDefaultToolkit().sync();
+
     }
 
     @Override
-    public void componentMoved(ComponentEvent e) {}
+    public void componentMoved(ComponentEvent e) {
+    }
 
     @Override
-    public void componentShown(ComponentEvent e) {}
+    public void componentShown(ComponentEvent e) {
+    }
 
     @Override
-    public void componentHidden(ComponentEvent e) {}
+    public void componentHidden(ComponentEvent e) {
+    }
 
     @Override
     public boolean dispatchKeyEvent(KeyEvent e) {
         int x = 0;
         int y = 0;
-        switch(e.getKeyCode()){
+        switch (e.getKeyCode()) {
             case KeyEvent.VK_W:
                 y = 1;
                 break;
@@ -132,12 +134,12 @@ class Viewport extends JPanel implements ComponentListener, KeyEventDispatcher {
         if (e.getID() == KeyEvent.KEY_PRESSED) {
             Input.in.setAxis(Input.in.getAxis().add(new Vector2(x, y)));
         } else if (e.getID() == KeyEvent.KEY_RELEASED) {
-            if (e.getKeyCode()==KeyEvent.VK_F1) {
-                Camera.FPS = !Camera.FPS;
+            if (e.getKeyCode() == KeyEvent.VK_F1) {
+                Camera.fps = !Camera.fps;
             }
-            if (e.getKeyCode()==KeyEvent.VK_F3) {
+            if (e.getKeyCode() == KeyEvent.VK_F3) {
                 Core.debug = !Core.debug;
-                Camera.FPS = Core.debug;
+                Camera.fps = Core.debug;
             }
             Input.in.setAxis(Input.in.getAxis().subtract(new Vector2(x, y)));
         }

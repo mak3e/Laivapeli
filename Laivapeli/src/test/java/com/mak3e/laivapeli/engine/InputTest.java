@@ -17,26 +17,26 @@ import static org.junit.Assert.*;
  * @author Make
  */
 public class InputTest {
-    
+
     public InputTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
     }
-    
+
     @Test
     public void inputSetAxisTestLargerThan() {
         Input in = new Input();
@@ -44,21 +44,21 @@ public class InputTest {
         System.out.println(in.getAxis());
         assertTrue(new Vector2(1f, 1f).isEqualTo(in.getAxis()));
     }
-    
+
     @Test
     public void inputSetAxisTestLargerAndSmallerThan() {
         Input in = new Input();
         in.setAxis(new Vector2(-10f, 10f));
         assertTrue(new Vector2(-1f, 1f).isEqualTo(in.getAxis()));
     }
-    
+
     @Test
     public void inputSetAxisTestSmallerThan() {
         Input in = new Input();
         in.setAxis(new Vector2(-10f, -10f));
         assertTrue(new Vector2(-1f, -1f).isEqualTo(in.getAxis()));
     }
-    
+
     @Test
     public void inputSetAxisTestInRange() {
         Input in = new Input();

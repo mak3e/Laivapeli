@@ -6,8 +6,6 @@
 package com.mak3e.laivapeli.engine;
 
 import com.mak3e.laivapeli.game.Game;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * Core takes care of the game engine.
@@ -44,7 +42,6 @@ public class Core {
      *
      * @return Clock
      */
-
     /**
      * Update game objects and make clock tick.
      */

@@ -10,19 +10,18 @@ import java.util.Map;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 
-
 /**
- *
+ * Sound player.
  * @author Make
  */
 public class Sound implements Runnable {
 
-    public static final Sound audio = new Sound();
+    public static Sound audio = new Sound();
     private Map<String, Clip> playing = new HashMap();
 
     /**
      * Play a sound.
-     * 
+     *
      * @param sound sound name
      * @param loop if true, loop the sound
      */
@@ -32,7 +31,7 @@ public class Sound implements Runnable {
             if (playing.containsKey(sound)) {
                 clip = playing.get(sound);
             } else {
-                clip = AudioSystem.getClip();
+                clip = AudioSystem.getClip(null);
                 clip.open(Resources.files.getAudio(sound));
                 playing.put(sound, clip);
             }
@@ -43,16 +42,16 @@ public class Sound implements Runnable {
             }
             clip.start();
         } catch (Exception ex) {
-            if(Resources.files.getStatus()){
+            if (Resources.files.getStatus()) {
                 System.out.println("Error while playing '" + sound + "'");
             }
         }
 
     }
-    
+
     /**
      * Stop playing a sound.
-     * 
+     *
      * @param sound sound name
      */
     public void stop(String sound) {

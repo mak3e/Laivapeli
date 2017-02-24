@@ -7,7 +7,6 @@ package com.mak3e.laivapeli.engine;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
-import java.awt.Image;
 
 /**
  * Camera is used for drawing the game world on screen.
@@ -20,7 +19,7 @@ public class Camera {
     //1 unit is 256 pixels when width is 800 and camera zoom is 1
     //sprites are rendered about 4 times smaller depending of the scale
     public static Camera main = new Camera(3.125f); // Main camera
-    public static boolean FPS = false; // Show fps?
+    public static boolean fps = false; // Show fps?
     private GameObject target; // Target's position is camera's position
     private Vector2 viewSize; // Size of UI in pixels
     private float unitsPerWidth = 3.125f; // Units per width
@@ -37,47 +36,22 @@ public class Camera {
         this.unitsPerWidth = unitsPerWidth;
     }
 
-    /**
-     * Set target for camera to follow.
-     *
-     * @param target GameObject
-     */
     public void setTarget(GameObject target) {
         this.target = target;
     }
 
-    /**
-     * Get camera's position.
-     *
-     * @return camera's position
-     */
     public Vector2 getPos() {
         return target.getPos();
     }
 
-    /**
-     * Get view size in pixels.
-     *
-     * @return view size as Vector2
-     */
     public Vector2 getViewSize() {
         return viewSize;
     }
 
-    /**
-     * Get units per window width.
-     *
-     * @return units per width
-     */
     public float getUnitsPerWidth() {
         return unitsPerWidth;
     }
-
-    /**
-     * Get units per window height.
-     *
-     * @return units per height
-     */
+    
     public float getUnitsPerHeight() {
         return unitsPerWidth / viewSize.x * viewSize.y;
     }
@@ -93,28 +67,18 @@ public class Camera {
         if (target != null) {
             this.view = view;
             drawBackground();
-            drawDemo();
             for (GameObject gameObject : Core.engine.getGame().getGameObjects()) {
                 gameObject.capture(this);
             }
-            if (Camera.FPS && this.equals(Camera.main)) {
+            if (Camera.fps && this.equals(Camera.main)) {
                 drawFps();
             }
             fpsClock.tick();
         }
     }
 
-    void drawDemo() {
-        view.setColor(Color.BLACK);
-        view.drawString(
-                "DEMO",
-                (int) viewSize.x - 45,
-                10
-        );
-    }
-
     /**
-     * Debug the game world
+     * Debug the game world.
      *
      * Shows debug data of the game world
      *
