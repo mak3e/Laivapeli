@@ -33,7 +33,6 @@ public class GameWindow {
      * Main method.
      *
      * @param a Arguments
-     * @throws InterruptedException
      */
     public static void main(String[] a) {
         System.out.println("Laivapeli\n");

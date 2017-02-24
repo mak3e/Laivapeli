@@ -6,6 +6,9 @@
 package com.mak3e.laivapeli.engine;
 
 import com.mak3e.laivapeli.game.Game;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Core takes care of the game engine.
@@ -24,7 +27,11 @@ public class Core {
      * Initialize core
      */
     public Core() {
-        Resources.files.load();
+        try {
+            Resources.files.load();
+        } catch (Exception ex) {
+            System.out.println("Error while loading resources");
+        }
         game = new Game();
     }
 

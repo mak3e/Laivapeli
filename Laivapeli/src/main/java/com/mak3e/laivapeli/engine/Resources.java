@@ -7,8 +7,16 @@ package com.mak3e.laivapeli.engine;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
@@ -27,21 +35,36 @@ public class Resources {
     /**
      * Load all resources.
      */
-    public void load() {
+    public void load() throws Exception {
         System.out.println("Loading resources");
-        File[] list = new File("resources").listFiles();
-        for (File file : list) {
-            System.out.println("  " + file.getName());
+        
+        List<String> resources = new ArrayList<>();
+        resources.add("box1.png");
+        resources.add("fish.png");
+        resources.add("fish.wav");
+        resources.add("gfish.png");
+        resources.add("harbor.png");
+        resources.add("icon.png");
+        resources.add("idleship.wav");
+        resources.add("island.png");
+        resources.add("ocean.wav");
+        resources.add("rain.wav");
+        resources.add("ship.png");
+        resources.add("ship.wav");
+        resources.add("smoke.png");
+        
+        for (String file : resources) {
+            System.out.println("  " + file);
             try {
-                if (file.getName().contains(".wav")) {
+                if (file.contains(".wav")) {
                     loadAudio(file);
                 }
-                if (file.getName().contains(".png")) {
+                if (file.contains(".png")) {
                     loadImage(file);
                 }
             } catch (Exception ex) {
                 System.out.println(
-                        "Error while loading '" + file.getName() + "'"
+                        "Error while loading '" + file + "'"
                 );
             }
         }
@@ -58,20 +81,16 @@ public class Resources {
         return status;
     }
 
-    void loadAudio(File file) throws Exception {
+    void loadAudio(String file) throws Exception {
         AudioInputStream audioFile = null;
-        audioFile = AudioSystem.getAudioInputStream(file);
-        audioFiles.put(getName(file), audioFile);
+        audioFile = AudioSystem.getAudioInputStream(System.class.getResource("/" + file));
+        audioFiles.put(file.substring(0, file.length()-4), audioFile);
     }
 
-    void loadImage(File file) throws Exception {
+    void loadImage(String file) throws Exception {
         BufferedImage imageFile = null;
-        imageFile = ImageIO.read(file);
-        imageFiles.put(getName(file), imageFile);
-    }
-
-    String getName(File file) {
-        return file.getName().substring(0, file.getName().lastIndexOf("."));
+        imageFile = ImageIO.read(System.class.getResourceAsStream("/" + file));
+        imageFiles.put(file.substring(0, file.length()-4), imageFile);
     }
 
     /**
