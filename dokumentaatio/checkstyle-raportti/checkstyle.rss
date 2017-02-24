@@ -25,8 +25,8 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2017</copyright>
     <item>
-      <title>File: 12,
-             Errors: 0,
+      <title>File: 18,
+             Errors: 9,
              Warnings: 0,
              Infos: 0
       </title>
@@ -47,6 +47,20 @@ under the License.
                           <tr>
                 <td>
                   <a href="${project.url}/checkstyle.html#com.mak3e.laivapeli.engine.Camera.java">com/mak3e/laivapeli/engine/Camera.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  1
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#com.mak3e.laivapeli.game.Island.java">com/mak3e/laivapeli/game/Island.java</a>
                 </td>
                 <td>
                   0
@@ -102,6 +116,20 @@ under the License.
               </tr>
                           <tr>
                 <td>
+                  <a href="${project.url}/checkstyle.html#com.mak3e.laivapeli.engine.Sound.java">com/mak3e/laivapeli/engine/Sound.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="${project.url}/checkstyle.html#com.mak3e.laivapeli.engine.Clock.java">com/mak3e/laivapeli/engine/Clock.java</a>
                 </td>
                 <td>
@@ -116,7 +144,35 @@ under the License.
               </tr>
                           <tr>
                 <td>
+                  <a href="${project.url}/checkstyle.html#com.mak3e.laivapeli.engine.Resources.java">com/mak3e/laivapeli/engine/Resources.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  5
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="${project.url}/checkstyle.html#com.mak3e.laivapeli.engine.GameObject.java">com/mak3e/laivapeli/engine/GameObject.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  3
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#com.mak3e.laivapeli.engine.Vector2.java">com/mak3e/laivapeli/engine/Vector2.java</a>
                 </td>
                 <td>
                   0
@@ -130,7 +186,35 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#com.mak3e.laivapeli.engine.Vector2.java">com/mak3e/laivapeli/engine/Vector2.java</a>
+                  <a href="${project.url}/checkstyle.html#com.mak3e.laivapeli.ui.GameWindow.java">com/mak3e/laivapeli/ui/GameWindow.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#com.mak3e.laivapeli.game.Smoke.java">com/mak3e/laivapeli/game/Smoke.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#com.mak3e.laivapeli.game.Harbor.java">com/mak3e/laivapeli/game/Harbor.java</a>
                 </td>
                 <td>
                   0
@@ -172,7 +256,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#com.mak3e.laivapeli.ui.GameWindow.java">com/mak3e/laivapeli/ui/GameWindow.java</a>
+                  <a href="${project.url}/checkstyle.html#com.mak3e.laivapeli.game.Fish.java">com/mak3e/laivapeli/game/Fish.java</a>
                 </td>
                 <td>
                   0

@@ -38,7 +38,7 @@ public class GameWindow {
         System.out.println("Laivapeli\n");
         JFrame window = new JFrame("Laivapeli");
         Toolkit kit = Toolkit.getDefaultToolkit();
-        Image img = kit.createImage("resources/icon.png");
+        Image img = kit.getImage(System.class.getResource("/icon.png"));
         window.setIconImage(img);
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.getContentPane().setPreferredSize(new Dimension(WIDTH, HEIGHT));
