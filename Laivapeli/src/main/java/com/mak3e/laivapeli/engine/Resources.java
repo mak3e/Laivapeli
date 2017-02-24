@@ -23,6 +23,7 @@ import javax.sound.sampled.AudioSystem;
 
 /**
  * Resource loader, loads resources.
+ *
  * @author Make
  */
 public class Resources {
@@ -37,7 +38,7 @@ public class Resources {
      */
     public void load() throws Exception {
         System.out.println("Loading resources");
-        
+
         List<String> resources = new ArrayList<>();
         resources.add("box1.png");
         resources.add("fish.png");
@@ -52,7 +53,7 @@ public class Resources {
         resources.add("ship.png");
         resources.add("ship.wav");
         resources.add("smoke.png");
-        
+
         for (String file : resources) {
             System.out.println("  " + file);
             try {
@@ -83,14 +84,16 @@ public class Resources {
 
     void loadAudio(String file) throws Exception {
         AudioInputStream audioFile = null;
-        audioFile = AudioSystem.getAudioInputStream(System.class.getResource("/" + file));
-        audioFiles.put(file.substring(0, file.length()-4), audioFile);
+        audioFile = AudioSystem.getAudioInputStream(
+                System.class.getResource("/" + file)
+        );
+        audioFiles.put(file.substring(0, file.length() - 4), audioFile);
     }
 
     void loadImage(String file) throws Exception {
         BufferedImage imageFile = null;
         imageFile = ImageIO.read(System.class.getResourceAsStream("/" + file));
-        imageFiles.put(file.substring(0, file.length()-4), imageFile);
+        imageFiles.put(file.substring(0, file.length() - 4), imageFile);
     }
 
     /**
