@@ -15,6 +15,7 @@ import java.util.List;
 
 /**
  * Smoke.
+ *
  * @author Make
  */
 public class Smoke extends GameObject {
@@ -33,7 +34,8 @@ public class Smoke extends GameObject {
 
     /**
      * Constructor.
-     * @param ship ship 
+     *
+     * @param ship ship
      */
     public Smoke(Ship ship) {
         super(new Vector2(0f, 0f));

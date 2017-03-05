@@ -41,6 +41,7 @@ public class CoreTest {
     @Test
     public void coreTest() {
         assertTrue(Core.engine != null);
+        assertTrue(Resources.files.getStatus());
     }
 
     @Test
@@ -50,5 +51,6 @@ public class CoreTest {
 
     public void coreUpdateTest() {
         Core.engine.update();
+        assertTrue(Clock.time.getDeltaTime() != 0);
     }
 }

@@ -10,12 +10,14 @@ import com.mak3e.laivapeli.engine.Vector2;
 
 /**
  * Island.
+ *
  * @author Make
  */
 public class Island extends GameObject {
 
     /**
      * Constructor.
+     *
      * @param pos position
      */
     public Island(Vector2 pos) {

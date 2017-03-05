@@ -51,7 +51,7 @@ public class Camera {
     public float getUnitsPerWidth() {
         return unitsPerWidth;
     }
-    
+
     public float getUnitsPerHeight() {
         return unitsPerWidth / viewSize.x * viewSize.y;
     }

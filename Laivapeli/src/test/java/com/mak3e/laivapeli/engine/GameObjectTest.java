@@ -47,4 +47,45 @@ public class GameObjectTest {
             }
         };
     }
+
+    @Test
+    public void GameObjectAddAngleTest() {
+        GameObject go = new GameObject(new Vector2(0, 0)) {
+            @Override
+            public void update() {
+
+            }
+        };
+        go.addAngle(90f);
+        go.addAngle(10f);
+        assertEquals(100f, go.getAngle(), 0f);
+    }
+
+    @Test
+    public void GameObjectDirectionScaleTest() {
+        GameObject go = new GameObject(new Vector2(0, 0)) {
+            @Override
+            public void update() {
+
+            }
+        };
+        assertEquals(1, go.getDirection());
+        assertEquals(1f, go.getScale(), 0f);
+        go.setDirection(-1);
+        go.addScale(1f);
+        assertEquals(-1, go.getDirection());
+        assertEquals(2f, go.getScale(), 0f);
+    }
+
+    @Test
+    public void GameObjectGetSpriteTest() {
+        GameObject go = new GameObject(new Vector2(0, 0), "ship") {
+            @Override
+            public void update() {
+
+            }
+        };
+        assertTrue(go.getSprite() != null);
+    }
+
 }

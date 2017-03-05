@@ -18,4 +18,9 @@ Piirtäminen tapahtuu siten, että käyttöliittymä pyytää kameraa piirtämä
 ![alt Luokkakaavio](luokkakaavio.png)
 
 **Sekvenssikaavio**
+Kaavio kuvaa pelimoottorin rakennetta
+![alt Sekvenssikaavio](sekvenssikaavio.png)
+
+**Sekvenssikaavio**
+Kaavio kuvaa käyttäjän syötteenkäsittelyä
 ![alt Sekvenssikaavio](sekvenssikaavio.png)

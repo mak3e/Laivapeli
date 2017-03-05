@@ -37,10 +37,10 @@ public class Water extends GameObject {
         springs = new float[(int) (this.width * springsPerUnit) + 1];
         waveTime = 0;
     }
-    
+
     /**
      * Constructor.
-     * 
+     *
      * @param pos position
      * @param levelWidth level width in units
      * @param bg background?

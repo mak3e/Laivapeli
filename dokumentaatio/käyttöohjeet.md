@@ -1,1 +1,1 @@
-WASD
+Laiva liikkuu painamalla A, D tai <-, ->

@@ -35,6 +35,7 @@ public class Resources {
 
     /**
      * Load all resources.
+     * @throws Exception when something goes wrong
      */
     public void load() throws Exception {
         System.out.println("Loading resources");

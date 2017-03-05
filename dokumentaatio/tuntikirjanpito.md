@@ -17,6 +17,7 @@ Päivä | Tunnit(*) | Kuvaus
 20.2.2017 | 4h  | Debug mode, satama, äänet ja refaktorointia
 21.2.2017 | 4h  | Savua piipusta ja joitain pieniä muutoksia
 22.2.2017 | 4h  | Bugikorjauksia ja demoon valmistautuminen, javadoc, epäonnistuneita kokeiluja
-24.2.2017 | 2h  | javadoc loppuun, linux audio fix ja deadline 6 commit
+24.2.2017 | 6h  | javadoc loppuun, linux audio fix ja deadline 6 commit ja tiedostojen siiro jariin
+5.3.2017  | 4h  | Viimeistely, testidokumentaatio ja lisää testejä
 
 (*) Ajat kertovat vain kuinka paljon ainakin käytin, sillä tapanani on usein vain lukea koodia ja korjata pieniä asioita nopeasti, ilman että merkitsen niitä tähän.

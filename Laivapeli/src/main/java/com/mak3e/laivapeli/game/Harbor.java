@@ -10,6 +10,7 @@ import com.mak3e.laivapeli.engine.Vector2;
 
 /**
  * Harbor.
+ *
  * @author Make
  */
 public class Harbor extends GameObject {

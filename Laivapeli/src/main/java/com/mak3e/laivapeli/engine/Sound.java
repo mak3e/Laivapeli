@@ -12,9 +12,10 @@ import javax.sound.sampled.Clip;
 
 /**
  * Sound player.
+ *
  * @author Make
  */
-public class Sound implements Runnable {
+public class Sound {
 
     public static Sound audio = new Sound();
     private Map<String, Clip> playing = new HashMap();
@@ -58,11 +59,6 @@ public class Sound implements Runnable {
         if (playing.containsKey(sound)) {
             playing.get(sound).stop();
         }
-    }
-
-    @Override
-    public void run() {
-
     }
 
 }
